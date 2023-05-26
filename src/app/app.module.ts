@@ -6,11 +6,11 @@ import {RestaurantDashboardComponent} from './restaurant-dashboard/restaurant-da
 
 @NgModule({
   declarations: [
-    AppComponent,
-    RestaurantDashboardComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RestaurantDashboardComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
