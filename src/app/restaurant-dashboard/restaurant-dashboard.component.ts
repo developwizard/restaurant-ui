@@ -31,6 +31,10 @@ export class RestaurantDashboardComponent implements OnInit {
     this.modalRef = this.modalService.show(template);
   }
 
+  clearForms() {
+    this.formValue.reset();
+  }
+
   ngOnInit(): void {
     this.formValue = this.formBuilder.group({
       name: [''],
@@ -67,6 +71,13 @@ export class RestaurantDashboardComponent implements OnInit {
   getAllData() {
     this.api.getRestaurant().subscribe((res: RestaurantData[]) => {
       this.allRestaurantsData = res;
+    })
+  }
+
+  deleteRestaurant(data: RestaurantData) {
+    this.api.deleteRestaurant(data.id).subscribe((_) => {
+      alert("Restaurant record deleted successfully");
+      this.getAllData();
     })
   }
 }
