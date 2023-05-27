@@ -42,3 +42,4 @@ testem.log
 Thumbs.db
 
 restaurant-ui.iml
+db.json
