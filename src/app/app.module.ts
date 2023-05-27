@@ -4,6 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {RestaurantDashboardComponent} from './restaurant-dashboard/restaurant-dashboard.component';
 import {BsModalService} from "ngx-bootstrap/modal";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import {BsModalService} from "ngx-bootstrap/modal";
   ],
   imports: [
     BrowserModule,
-    RestaurantDashboardComponent
+    RestaurantDashboardComponent,
+    HttpClientModule
   ],
   providers: [BsModalService],
   bootstrap: [AppComponent]
