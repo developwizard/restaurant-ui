@@ -42,6 +42,28 @@ export class RestaurantDashboardComponent implements OnInit {
     this.getAllData()
   }
 
+  private setModelVal() {
+    this.restaurantModelObj.name = this.formValue.value.name;
+    this.restaurantModelObj.email = this.formValue.value.email;
+    this.restaurantModelObj.mobile = this.formValue.value.mobile;
+    this.restaurantModelObj.address = this.formValue.value.address;
+    this.restaurantModelObj.services = this.formValue.value.services;
+  }
+
+  addRestaurant() {
+    this.setModelVal();
+
+    this.api.postRestaurant(this.restaurantModelObj).subscribe(res => {
+        alert("Restaurant record added successfully");
+        this.modalRef?.hide()
+        this.formValue.reset();
+        this.getAllData();
+      },
+      error => {
+        alert("Something went wrong");
+      });
+  }
+
   getAllData() {
     this.api.getRestaurant().subscribe((res: RestaurantData[]) => {
       this.allRestaurantsData = res;
