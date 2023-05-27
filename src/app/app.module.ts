@@ -3,6 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {RestaurantDashboardComponent} from './restaurant-dashboard/restaurant-dashboard.component';
+import {BsModalService} from "ngx-bootstrap/modal";
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import {RestaurantDashboardComponent} from './restaurant-dashboard/restaurant-da
     BrowserModule,
     RestaurantDashboardComponent
   ],
-  providers: [],
+  providers: [BsModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
