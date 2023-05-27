@@ -6,7 +6,7 @@ import {map} from "rxjs/operators";
   providedIn: 'root'
 })
 export class ApiService {
-  private readonly BASE_URL = "http://localhost:3000/posts";
+  private readonly BASE_URL = "http://localhost:3000/posts/";
 
   constructor(private _http: HttpClient) {
   }
@@ -27,6 +27,13 @@ export class ApiService {
 
   deleteRestaurant(id: number) {
     return this._http.delete<any>(this.BASE_URL + id)
+      .pipe(map((res: any) => {
+        return res;
+      }));
+  }
+
+  updateRestaurant(data: any, id: number) {
+    return this._http.put<any>(this.BASE_URL + id, data)
       .pipe(map((res: any) => {
         return res;
       }));
