@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <h2>Restaurant Record App</h2>
     <div class="div d-flex">
-      <button class="btn btn-success">Add Restaurant</button>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="openModal(template)">Add Restaurant</button>
     </div>
   </div>
 </nav>
@@ -39,3 +39,13 @@
   </tr>
   </tbody>
 </table>
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+  </div>
+</ng-template>
