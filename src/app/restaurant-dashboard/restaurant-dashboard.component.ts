@@ -19,6 +19,8 @@ import {CommonModule} from "@angular/common";
 export class RestaurantDashboardComponent implements OnInit {
   modalRef?: BsModalRef;
   formValue!: FormGroup;
+  showAdd!: boolean;
+  showUpdate!: boolean;
   restaurantModelObj: RestaurantData = new RestaurantData();
   allRestaurantsData: RestaurantData[] = [];
 
@@ -28,6 +30,19 @@ export class RestaurantDashboardComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>) {
+    this.onAddRestaurantClick();
+    this.modalRef = this.modalService.show(template);
+  }
+
+  openModalInEditMode(template: TemplateRef<any>, data: RestaurantData) {
+    this.showAdd = false;
+    this.showUpdate = true;
+    this.restaurantModelObj.id = data.id;
+    this.formValue.controls['name'].setValue(data.name);
+    this.formValue.controls['email'].setValue(data.name);
+    this.formValue.controls['mobile'].setValue(data.name);
+    this.formValue.controls['address'].setValue(data.name);
+    this.formValue.controls['services'].setValue(data.name);
     this.modalRef = this.modalService.show(template);
   }
 
@@ -52,6 +67,12 @@ export class RestaurantDashboardComponent implements OnInit {
     this.restaurantModelObj.mobile = this.formValue.value.mobile;
     this.restaurantModelObj.address = this.formValue.value.address;
     this.restaurantModelObj.services = this.formValue.value.services;
+  }
+
+  onAddRestaurantClick() {
+    this.formValue.reset();
+    this.showAdd = true;
+    this.showUpdate = false;
   }
 
   addRestaurant() {
@@ -79,5 +100,17 @@ export class RestaurantDashboardComponent implements OnInit {
       alert("Restaurant record deleted successfully");
       this.getAllData();
     })
+  }
+
+  updateRestaurant() {
+    this.setModelVal();
+
+    this.api.updateRestaurant(this.restaurantModelObj, this.restaurantModelObj.id)
+      .subscribe((_) => {
+        alert("Restaurant record updated");
+        this.modalRef?.hide()
+        this.formValue.reset();
+        this.getAllData();
+      })
   }
 }

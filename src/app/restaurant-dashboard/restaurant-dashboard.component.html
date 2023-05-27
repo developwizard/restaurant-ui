@@ -33,7 +33,7 @@
     <td>{{data.address}}</td>
     <td>{{data.services}}</td>
     <td>
-      <button class="btn btn-info">Edit</button>
+      <button class="btn btn-info" data-bs-target="#exampleModal" (click)="openModalInEditMode(template, data)">Edit</button>
       <button class="btn btn-danger" (click)="deleteRestaurant(data)">Delete</button>
     </td>
   </tr>
@@ -72,6 +72,7 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-warning" (click)="clearForms()">Clear</button>
-    <button type="button" class="btn btn-primary" (click)="addRestaurant()">Add restaurant</button>
+    <button *ngIf="showAdd" type="button" class="btn btn-primary" (click)="addRestaurant()">Add restaurant</button>
+    <button *ngIf="showUpdate" type="button" class="btn btn-primary" (click)="updateRestaurant()">Update restaurant</button>
   </div>
 </ng-template>
