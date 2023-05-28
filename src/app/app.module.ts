@@ -21,7 +21,8 @@ import {AppRoutingModule} from "./app-routing.module";
       BrowserModule,
       HttpClientModule,
       RestaurantDashboardComponent,
-      RouterModule
+      RouterModule,
+      SignupComponent
     ],
   providers: [BsModalService],
   bootstrap: [AppComponent]

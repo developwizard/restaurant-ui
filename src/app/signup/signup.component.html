@@ -7,27 +7,27 @@
           <h5>Get free membership</h5>
           <hr>
         </div>
-        <form>
+        <form [formGroup]="signUpForm" (ngSubmit)="onSignup()">
           <div class="mb-3">
             <label for="nameInput" class="form-label">Name</label>
-            <input type="email" class="form-control" id="nameInput" aria-describedby="emailHelp">
+            <input formControlName="name" type="text" placeholder="Enter name" class="form-control" id="nameInput" aria-describedby="emailHelp">
           </div>
           <div class="mb-3">
             <label for="mobileInput" class="form-label">Mobile Number</label>
-            <input type="email" class="form-control" id="mobileInput" aria-describedby="emailHelp">
+            <input formControlName="mobile" type="text" placeholder="Enter Mobile Number" class="form-control" id="mobileInput" aria-describedby="emailHelp">
           </div>
           <div class="mb-3">
             <label for="emailInput" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+            <input formControlName="email" type="email" placeholder="Enter email" class="form-control" id="emailInput" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
           </div>
           <div class="mb-3">
             <label for="passwordInput" class="form-label">Password</label>
-            <input type="password" class="form-control" id="passwordInput">
+            <input formControlName="password" type="password" placeholder="Enter password" class="form-control" id="passwordInput">
           </div>
           <button type="submit" class="btn btn-primary">Signup</button>
         </form>
-        <a routerLink="/login">Already member? Click to Login!</a>
+        <a style="color: blue; margin-top: 10px" routerLink="/login">Already member? Click to Login!</a>
       </div>
     </div>
   </div>
