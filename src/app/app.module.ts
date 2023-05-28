@@ -12,13 +12,12 @@ import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    SignupComponent
+    AppComponent
   ],
     imports: [
       AppRoutingModule,
       BrowserModule,
+      LoginComponent,
       HttpClientModule,
       RestaurantDashboardComponent,
       RouterModule,
