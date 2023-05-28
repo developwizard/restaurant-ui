@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {ApiService} from "../shared/api";
 import {RestaurantData} from "./restaurant.model";
 import {CommonModule} from "@angular/common";
+import {RouterModule} from "@angular/router";
 
 @Component({
   selector: 'app-restaurant-dashboard',
@@ -13,7 +14,8 @@ import {CommonModule} from "@angular/common";
   imports: [
     CommonModule,
     ModalModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ]
 })
 export class RestaurantDashboardComponent implements OnInit {

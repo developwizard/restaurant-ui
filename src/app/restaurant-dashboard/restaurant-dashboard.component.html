@@ -2,7 +2,8 @@
   <div class="container-fluid">
     <h2>Restaurant Record App</h2>
     <div class="div d-flex">
-      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="openModal(template)">Add Restaurant</button>
+      <button class="btn btn-success" (click)="openModal(template)">Add Restaurant</button>
+      <button routerLink="/login" class="btn btn-danger">Log out</button>
     </div>
   </div>
 </nav>
