@@ -5,16 +5,24 @@ import {AppComponent} from './app.component';
 import {RestaurantDashboardComponent} from './restaurant-dashboard/restaurant-dashboard.component';
 import {BsModalService} from "ngx-bootstrap/modal";
 import {HttpClientModule} from "@angular/common/http";
+import {LoginComponent} from './login/login.component';
+import {SignupComponent} from './signup/signup.component';
+import {RouterModule} from "@angular/router";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    SignupComponent
   ],
-  imports: [
-    BrowserModule,
-    RestaurantDashboardComponent,
-    HttpClientModule
-  ],
+    imports: [
+      AppRoutingModule,
+      BrowserModule,
+      HttpClientModule,
+      RestaurantDashboardComponent,
+      RouterModule
+    ],
   providers: [BsModalService],
   bootstrap: [AppComponent]
 })
